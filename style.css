@@ -1,0 +1,207 @@
+/* Basic Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif; 
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* --- Header & Navigation Styling (Desktop) --- */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    margin: 0 auto;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bolder;
+    color: #000;
+}
+
+/* Desktop Navigation */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    align-items: center;
+    opacity: 0.8; 
+    transition: opacity 0.3s;
+}
+
+/* --- Mobile Menu Toggle (Hamburger) --- */
+
+.menu-toggle {
+    display: none; 
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #000;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+    transform-origin: 1px;
+}
+
+/* 'X' Icon Transformation */
+.menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 0px); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, 0px); }
+
+
+/* --- Hero Section Styling (Home Page Content) --- */
+
+.hero-section {
+    text-align: center;
+    padding: 80px 5% 0; 
+    min-height: 80vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; 
+    overflow: hidden; 
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    color: #333; 
+}
+h1{
+    font-size: 37px;
+}
+h2{
+    font-style: oblique;
+    font-size: 37px;
+}
+.cat img{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+    border-style: solid;
+}
+.cta-button {
+    background-color: #ffb800; 
+    color: #000;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.hero-title, .hero-subtitle, .cta-button {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* --- Responsiveness (Mobile View) --- */
+
+@media (max-width: 768px) {
+    
+    .header {
+        justify-content: space-between; 
+        padding: 20px 5%;
+    }
+    
+    .menu-toggle {
+        display: flex; 
+    }
+
+    /* Mobile Navigation Menu Styling: Dropdown on the right */
+    .nav {
+        position: absolute;
+        top: 65px; 
+        right: 0; 
+        left: auto;
+        width: 100%;
+        max-width: 250px; 
+        height: 0; 
+        overflow: hidden;
+        background-color: #fff; 
+        transition: height 0.3s ease-out;
+        box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.1); 
+        z-index: 99;
+        border-radius: 0 0 0 5px;
+    }
+    
+    .nav.open {
+        height: 280px; 
+        padding: 10px 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+        padding: 10px 20px; 
+    }
+
+    .nav-link {
+        font-size: 18px;
+        padding: 10px 0;
+        width: 100%;
+        text-align: right; 
+    }
+
+    /* Hero adjustments for mobile */
+    .hero-section {
+        padding-top: 50px; 
+        min-height: 70vh;
+    }
+
+    .hero-title {
+        font-size: 40px; 
+        margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px; 
+        margin-bottom: 25px;
+        padding: 0 10px; 
+    }
+
+    .hero-subtitle br {
+        display: none; 
+    }
+
+    .cta-button {
+        font-size: 18px;
+        padding: 12px 30px;
+    }
+
+    
+}
